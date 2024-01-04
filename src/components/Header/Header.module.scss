@@ -1,0 +1,113 @@
+/*COLORS*/
+$gradient-b: #31a5d6;
+$gradient-t: #9147dc;
+$wrapper-bg: #ffffff;
+$gray-text: #969696;
+$black-text: #000000;
+$border-color: #EDEDED;
+$button-color: #347AB4;
+
+.header {
+    padding-left: 28px;
+    width: 100%;
+    height: 104px;
+    border-bottom: 1px solid $border-color;
+
+    p {
+        font-size: 24px;
+        color: $gray-text;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    h3 {
+        margin: 0;
+
+        font-size: 32px;
+        font-weight: 600;
+        font-family: 'Source Code Pro', monospace;
+    }
+}
+
+
+.profile{
+    position: relative;
+
+    padding: 0 28px;
+
+    width: 247px;
+    height: auto;
+    border-top-right-radius: 40px;
+
+    transition: background-color 0.1s ease-in;
+
+    &:hover{
+        background-color: $border-color;
+
+        .dropMenu{
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+.dropMenu{
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1;
+    position: absolute;
+    top: 104px;
+    right: 0;
+
+    transition: opacity 0.1s ease-in-out;
+
+    background-color: $wrapper-bg;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.2);
+
+    width: 247px;
+    height: 108px;
+
+    button{
+        width: 100%;
+        height: 54px;
+
+        font-size: 24px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+
+        background-color: $wrapper-bg;
+        border-top: 0;
+        border-bottom: 1px solid $border-color;
+        border-right: 1px solid $border-color;
+        border-left: 1px solid $border-color;
+
+        &:hover{
+            background-color: $border-color;
+        }
+    }
+
+    .lastButton{
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+}
+
+.link{
+    height: 104px;
+    width: 159px;
+
+    transition: background-color 0.1s ease-in;
+
+}
+.active{
+    border-bottom: 2px solid $button-color;
+    color: $button-color !important;
+}
+.inactive{
+    cursor: pointer;
+    &:hover {
+        background-color: $border-color;
+    }
+}

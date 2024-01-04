@@ -1,0 +1,119 @@
+/*COLORS*/
+$gradient-b: #31a5d6;
+$gradient-t: #9147dc;
+$wrapper-bg: #ffffff;
+$gray-text: #969696;
+$black-text: #000000;
+$border-color: #EDEDED;
+$button-color: #347AB4;
+
+body {
+  display: flex;
+  justify-content: center;
+
+  margin: 0;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=$gradient-b, endColorstr=$gradient-t)";
+  background: -webkit-linear-gradient(45deg, $gradient-b, $gradient-t) fixed;
+  background: -moz-linear-gradient(45deg, $gradient-b, $gradient-t) fixed;
+  background: -o-linear-gradient(45deg, $gradient-b, $gradient-t) fixed;
+  background: linear-gradient(45deg, $gradient-b, $gradient-t) fixed;
+}
+
+p{
+  margin: 0;
+}
+
+em{
+  font-size: 18px;
+  font-style: normal;
+  color: $gray-text;
+}
+
+strong{
+  font-style: normal;
+  font-size: 24px;
+  color: $black-text;
+  font-weight: 500;
+}
+
+h1,h2 {
+  margin: 0;
+
+  font-size: 32px;
+  font-weight: 700;
+}
+.button {
+  cursor: pointer;
+  width: 251px;
+  height: 40px;
+
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  color: $wrapper-bg;
+
+  background-color: $button-color;
+  border-radius: 10px;
+  border: 0;
+
+  transition: background-color 0.1s ease;
+
+  &:hover {
+    background-color: lighten($button-color, 5%);
+
+    img {
+      transform: translateX(5px);
+    }
+  }
+
+  &:active {
+    background-color: darken($button-color, 5%);
+  }
+
+  img {
+    transition: transform 0.15s ease-out;
+  }
+}
+
+.wrapper{
+  margin: 60px auto;
+
+  width: 100vw;
+  max-width: 1200px;
+  background-color: $wrapper-bg;
+  border-radius: 40px;
+
+  input {
+      margin: 0;
+      padding: 8px;
+  
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: $gray-text;
+  
+      color-scheme: $gray-text;
+      border-radius: 10px;
+      border: 1px solid $border-color;
+    }
+}
+
+.content{
+  padding: 0 28px;
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.6);
+}
+
+
+
+
+

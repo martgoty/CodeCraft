@@ -2,7 +2,7 @@ import styles from './Header.module.scss'
 
 function Header() {
     return (
-        <div className={`d-flex flex-row justify-between align-center mb-35 ${styles.header}`}>
+        <div className={`d-flex flex-row justify-between align-center ${styles.header}`}>
 
             <div className="d-flex align-center cu-p">
                 <img
@@ -20,13 +20,13 @@ function Header() {
             <div className="d-flex flex-row">
                 <p className={`d-flex align-center justify-center ${styles.link} ${styles.active}`}>Занятия</p>
                 <p className={`d-flex align-center justify-center ${styles.link} ${styles.inactive}`}>Курсы</p>
-                <div className={`d-flex align-center justify-center cu-p ${styles.profile}`}>
-                    <img width={32} height={32} src="/img/user.svg" alt="Иконка пользователя" />
+                <div className={`d-flex align-center justify-center ${styles.profile}`}>
+                    <img width={32} height={32} src="img/user.svg" alt="Иконка пользователя" />
                     <p className="ml-5">user_1210181231313</p>
                     <div className={styles.dropMenu}>
                         <button className='d-flex align-center justify-center cu-p'>
                             <img 
-                                src="/img/user.svg" 
+                                src="img/user.svg" 
                                 alt="Иконка профиля" 
                                 className='mr-5'
                             />
@@ -34,7 +34,7 @@ function Header() {
                         </button>
                         <button className={`d-flex align-center justify-center cu-p ${styles.lastButton}`}>
                             <img
-                                src="/img/exit.svg"
+                                src="img/exit.svg"
                                 alt="Иконка профиля"
                                 className='mr-5'
                             />

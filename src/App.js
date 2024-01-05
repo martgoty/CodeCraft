@@ -53,7 +53,7 @@ function App() {
     if(!isLoading && !nextLesson){
       return (
         <Empty
-          imgURL={'/img/sleep-smile.svg'}
+          imgURL={'img/sleep-smile.svg'}
           text1={'Запланированных уроков нет'}
           text2={'Уточните у вашего преподавателя'}
         />
@@ -73,6 +73,7 @@ function App() {
       />
     )
   }
+
   const renderLessons = () => {
 
     const filteredLessons = lessons.filter((obj) => {
@@ -85,7 +86,7 @@ function App() {
       if(!searchValue){
         return (
           <Empty
-            imgURL={'/img/glass-smile.svg'}
+            imgURL={'img/glass-smile.svg'}
             text1={'Завершённых уроков нет'}
             text2={''}
           />
@@ -94,7 +95,7 @@ function App() {
 
       return(
         <Empty
-          imgURL={'/img/cry-smile.svg'}
+          imgURL={'img/cry-smile.svg'}
           text1={'Ничего не найдено'}
           text2={''}
         />
@@ -122,10 +123,9 @@ function App() {
       <Header />
 
       <div className="content">
-        <h1 className="mb-35">Следующее занятие</h1>
+
+        {/* <h1 className="mb-35 mt-35">Следующее занятие</h1>
         {renderNextLesson()}
-
-
         <div className='d-flex justify-between align-center mb-35'>
           <h2>{searchValue ? `Поиск на ${getDate(searchValue)}` : 'История занятий'}</h2>
           <input
@@ -134,11 +134,38 @@ function App() {
             onChange={onChangeSearchInput}
           />
         </div>
+        {renderLessons()} */}
 
-        {renderLessons()}
+        <div className='reg d-flex flex-row'>
+          <div className='left d-flex flex-column align-center'>
+            <h1>Регистрация</h1>
+            <form className="d-flex flex-column align-center" action="">
+              <input className="mb-20" type="text" placeholder="Имя" />
+              <input className="mb-20" type="email" placeholder="Почта" />
+              <input className="mb-20" type="password" placeholder="Пароль" />
+              <div className="checkbox d-flex flex-row align-center mb-35">
+                <input className="mr-10" type="checkbox" />
+                <p>Я принимаю <a href="#">политику безопасности</a> сайта</p>
+              </div>
+              <button className='button d-flex align-center justify-center flex-row'>
+                <p>Регистрация</p>
+                <img 
+                  width={18}
+                  height={18}
+                  src="img/arrow.svg" 
+                  alt="Стрелка вправо" 
+                  className='ml-5'
+                />
+              </button>
+            </form>
+          </div>
+          <div className='right'>
+            test1
+          </div>
+
+        </div>
 
       </div>
-
     </div>
   )
 }

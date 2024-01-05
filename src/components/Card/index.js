@@ -52,7 +52,7 @@ function Card({
                                         className="mr-5"
                                         width={18}
                                         height={18}
-                                        src={"/img/course.svg"}
+                                        src={"img/course.svg"}
                                         alt="Иконка курса"
                                     />
                                     <p><em>{course}</em></p>
@@ -62,7 +62,7 @@ function Card({
                                         className="mr-5"
                                         width={18}
                                         height={18}
-                                        src="/img/lesson.svg"
+                                        src="img/lesson.svg"
                                         alt="Иконка урока"
                                     />
                                     <p><em>{lesson}</em></p>
@@ -72,7 +72,7 @@ function Card({
                                         className="mr-5"
                                         width={18}
                                         height={18}
-                                        src="/img/teacher.svg"
+                                        src="img/teacher.svg"
                                         alt="Иконка учителя"
                                     />
                                     <p><em>{teacher}</em></p>
@@ -85,7 +85,7 @@ function Card({
                                 <img
                                     width={18}
                                     height={18}
-                                    src="/img/arrow.svg"    
+                                    src="img/arrow.svg"    
                                     alt="Стрелка вправо"
                                 />
                             </button>

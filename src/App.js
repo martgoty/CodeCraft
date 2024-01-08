@@ -7,6 +7,7 @@ import axios from 'axios'
 import Header from './components/Header'
 import Card from './components/Card'
 import Empty from './components/Empty'
+import MediaButton from './components/MediaButton'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -137,6 +138,7 @@ function App() {
         {renderLessons()} */}
 
         <div className='reg d-flex flex-row'>
+
           <div className='left d-flex flex-column align-center'>
             <h1>Регистрация</h1>
             <form className="d-flex flex-column align-center" action="">
@@ -147,7 +149,7 @@ function App() {
                 <input className="mr-10" type="checkbox" />
                 <p>Я принимаю <a href="#">политику безопасности</a> сайта</p>
               </div>
-              <button className='button d-flex align-center justify-center flex-row'>
+              <button className='button'>
                 <p>Регистрация</p>
                 <img 
                   width={18}
@@ -157,10 +159,30 @@ function App() {
                   className='ml-5'
                 />
               </button>
+              <a href="#">Уже есть аккаунт?</a>
             </form>
           </div>
-          <div className='right'>
-            test1
+
+          <div className='right d-flex flex-column align-center justify-center'>
+            <MediaButton 
+              imageURL={'/img/media/vk.svg'}
+              text={'Войти через VK'}
+              color={'#385796'}
+            />
+            <MediaButton
+              imageURL={'/img/media/google.svg'}
+              text={'Войти через Google'}
+              color={'#4285F4'}
+            />
+            <MediaButton
+              imageURL={'/img/media/yandex.svg'}
+              text={'Войти через Yandex'}
+              color={'#FC3F1D'}
+            />
+          </div>
+
+          <div className='decoration d-flex align-center justify-center'>
+            <p className='circle d-flex align-center justify-center'>или</p>
           </div>
 
         </div>

@@ -80,7 +80,7 @@ function Card({
                             </ul>
                         </div>
                         {
-                            hasButton && <button className="button d-flex align-center justify-center flex-row" onClick={() => { handleButtonClick() }}>
+                            hasButton && <button className="button" onClick={() => { handleButtonClick() }}>
                                 <p className="mr-5">Подключиться</p>
                                 <img
                                     width={18}

@@ -6,8 +6,8 @@ function Header() {
 
             <div className="d-flex align-center cu-p">
                 <img
-                    width={62}
-                    height={62}
+                    width={60}
+                    height={60}
                     src="/img/logo.svg"
                     alt="Логотип"
                 />

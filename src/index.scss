@@ -7,6 +7,7 @@ $black-text: #000000;
 $border-color: #EDEDED;
 $button-color: #347AB4;
 
+/*GENERAL*/
 body {
   display: flex;
   justify-content: center;
@@ -50,8 +51,46 @@ h1,h2 {
   font-size: 32px;
   font-weight: 700;
 }
-.button {
+
+input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
+  filter: invert(0.6);
+}
+
+.wrapper {
+  margin: 60px auto;
+
+  width: 100vw;
+  max-width: 1200px;
+  background-color: $wrapper-bg;
+  border-radius: 40px;
+
+  input {
+    margin: 0;
+    padding: 8px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: $gray-text;
+
+    color-scheme: $gray-text;
+    border-radius: 10px;
+    border: 1px solid $border-color;
+  }
+
+  .content {
+    padding: 0 28px;
+  }
+}
+
+/*BUTTONS*/
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  cursor: pointer;
+
   width: 251px;
   height: 40px;
 
@@ -82,67 +121,46 @@ h1,h2 {
   }
 }
 
-.wrapper{
-  margin: 60px auto;
 
-  width: 100vw;
-  max-width: 1200px;
-  background-color: $wrapper-bg;
-  border-radius: 40px;
+/*REGISTRATION*/
+.reg {
+  position: relative;
 
-  input {
-      margin: 0;
-      padding: 8px;
-  
-      font-family: 'Montserrat', sans-serif;
-      font-size: 18px;
-      color: $gray-text;
-  
-      color-scheme: $gray-text;
-      border-radius: 10px;
-      border: 1px solid $border-color;
-    }
-}
-
-.content{
-  padding: 0 28px;
-}
-
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  filter: invert(0.6);
-}
-
-.reg{
   margin: 75px auto;
 
   width: 740px;
   height: 455px;
 
-  .right{
+  .right {
     height: 100%;
     width: 50%;
+    gap: 25px;
 
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    background-color: #9147dc;
+
+    background-image: url('../public/img/reg-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
   }
+
   .left {
     padding: 30px 0;
+
     height: 100%;
     width: 50%;
-
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     border-top: 1px solid $border-color;
     border-left: 1px solid $border-color;
     border-bottom: 1px solid $border-color;
 
-    input{
+    input {
       width: 251px;
       height: 34px;
-
       border: 1px solid $border-color;
 
       color: $gray-text;
@@ -151,26 +169,68 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
 
     h1 {
-        margin-bottom: 48px;
+      margin-bottom: 48px;
     }
 
-    .checkbox{
+    a {
+      margin-top: 13px;
+
+      font-size: 16px;
+      color: $button-color !important;
+      font-weight: 300;
+    }
+
+    .checkbox {
       width: 251px;
 
       color: $gray-text;
       font-size: 18px;
 
-      input{
+      input {
         width: 18px;
         height: 18px;
       }
 
-      a{
+      a {
         color: $button-color;
       }
     }
+
   }
 }
+
+.decoration {
+  position: absolute;
+  z-index: 10;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  margin: auto;
+
+  width: 85px;
+  height: 85px;
+  background-color: $black-text;
+  border-radius: 100%;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  p {
+    font-size: 24px;
+    color: $wrapper-bg;
+    font-weight: 400;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 

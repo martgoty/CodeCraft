@@ -1,6 +1,6 @@
 import styles from './Empty.module.scss'
 
-function Empty({imgURL, text1, text2}) {
+export function Empty({imgURL, text1, text2}) {
     return (
         <div className={"d-flex flex-column align-center justify-center mb-35 " + styles.empty}>
             <img
@@ -15,5 +15,3 @@ function Empty({imgURL, text1, text2}) {
         </div>
     )
 }
-
-export default Empty

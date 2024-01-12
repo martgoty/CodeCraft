@@ -1,6 +1,6 @@
 import styles from './MediaButton.module.scss'
 
-function MediaButton({imageURL, text, color}) {
+export function MediaButton({imageURL, text, color}) {
     return(
         <button style={{ backgroundColor: `${color}`}} className={`d-flex flex-row align-center ${styles.mediaButton}`}>
             <img
@@ -14,5 +14,3 @@ function MediaButton({imageURL, text, color}) {
         </button>
     )
 }
-
-export default MediaButton

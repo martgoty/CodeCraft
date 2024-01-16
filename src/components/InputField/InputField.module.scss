@@ -1,0 +1,12 @@
+@import '../../variables.scss';
+
+.warning{
+    width: auto;
+    min-height: 20px;
+
+    p{
+        color: $red-text;
+        font-size: 16px;
+        font-weight: 300;
+    }
+}

@@ -1,3 +1,4 @@
+@import '../../variables.scss';
 .mediaButton {
     cursor: pointer;
 
@@ -14,10 +15,13 @@
     font-size: 18px;
     font-weight: 400;
 
-    transition: filter 0.15s ease-in-out;
+    transition: transform 0.2s ease-in-out;
 
     &:hover{
-        filter: brightness(1.3);
+        transform: translateY(-2px);
+    }
+    &:focus-visible{
+        outline: 2px solid $gradient-b;
     }
 
 }

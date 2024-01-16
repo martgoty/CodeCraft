@@ -1,12 +1,4 @@
-/*COLORS*/
-$gradient-b: #31a5d6;
-$gradient-t: #9147dc;
-$wrapper-bg: #ffffff;
-$gray-text: #969696;
-$black-text: #000000;
-$border-color: #EDEDED;
-$button-color: #347AB4;
-
+@import 'variables';
 /*GENERAL*/
 body {
   display: flex;
@@ -32,6 +24,12 @@ p{
   margin: 0;
 }
 
+a{
+  &:focus-visible{
+    outline: 1px solid $gradient-b;
+  }
+}
+
 em{
   font-size: 18px;
   font-style: normal;
@@ -52,11 +50,6 @@ h1,h2 {
   font-weight: 700;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  filter: invert(0.6);
-}
-
 .wrapper {
   margin: 60px auto;
 
@@ -66,17 +59,21 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 40px;
 
   input {
-    margin: 0;
-    padding: 8px;
+      margin: 0;
+      padding: 8px;
 
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    color: $gray-text;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      color: $gray-text;
 
-    color-scheme: $gray-text;
-    border-radius: 10px;
-    border: 1px solid $border-color;
-  }
+      color-scheme: $gray-text;
+      border-radius: 10px;
+      border: 1px solid $border-color;
+
+      &:focus-visible{
+        outline: 1px solid $gradient-b;
+      }
+    }
 
   .content {
     padding: 0 28px;
@@ -103,16 +100,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
   transition: background-color 0.1s ease;
 
-  &:hover {
+  &:hover:enabled {
     background-color: lighten($button-color, 5%);
-
     img {
       transform: translateX(5px);
     }
   }
 
+  &:focus-visible{
+    outline: 1px solid $gradient-b;
+  }
+
   &:active {
     background-color: darken($button-color, 5%);
+  }
+
+  &:disabled{
+    cursor: default;
+
+    background-color: $gray-text;
+
   }
 
   img {

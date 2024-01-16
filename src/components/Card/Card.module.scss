@@ -1,12 +1,4 @@
-/*COLORS*/
-$gradient-b: #31a5d6;
-$gradient-t: #9147dc;
-$wrapper-bg: #ffffff;
-$gray-text: #969696;
-$black-text: #000000;
-$border-color: #EDEDED;
-$button-color: #347AB4;
-
+@import '../../variables.scss';
 .card {
     padding: 28px;
 

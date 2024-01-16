@@ -2,22 +2,24 @@ import { Link } from 'react-router-dom'
 
 import styles from './Header.module.scss'
 
-export function Header({ isAuth = false}) {
+export function Header({ isAuth = false }) {
     return (
         <div className={`d-flex flex-row justify-between align-center ${styles.header}`}>
-
-            <div className="d-flex align-center cu-p">
-                <img
-                    width={60}
-                    height={60}
-                    src="/img/logo.svg"
-                    alt="Логотип"
-                />
-                <div className="ml-5">
-                    <h3 className="text-uppercase">CodeCraft</h3>
-                    <p><em>Онлайн-школа</em></p>
+            <Link to="/">
+                <div className="d-flex align-center cu-p">
+                    <img
+                        width={60}
+                        height={60}
+                        src="img/logo.svg"
+                        alt="Логотип"
+                    />
+                    <div className="ml-5">
+                        <h3 className="text-uppercase">CodeCraft</h3>
+                        <p><em>Онлайн-школа</em></p>
+                    </div>
                 </div>
-            </div>
+
+            </Link>
 
             <div className="d-flex flex-row">
                 {
@@ -58,8 +60,12 @@ export function Header({ isAuth = false}) {
                         </button>
                     </>
                     : <>
-                            <button className={styles.menuButton}>Регистрация</button>
-                            <button className={`${styles.menuButton} ${styles.menuButtonRound}`}>Вход</button>
+                            <Link to='/register'>
+                                <button className={styles.menuButton}>Регистрация</button>
+                            </Link>
+                            <Link to='/auth'>
+                                <button className={`${styles.menuButton} ${styles.menuButtonRound}`}>Вход</button>
+                            </Link>
 
                     </>
                 }

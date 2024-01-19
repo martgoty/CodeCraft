@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 
 import styles from './Auth.module.scss'
 import { MediaButton, InputField } from '../../components'
@@ -13,10 +14,10 @@ export function Auth() {
         handleSubmit,
     } = useForm({
         defaultValues: {
-            email: 'email@email.ru',
-            password: '12345678',
+            email: '',
+            password: '',
         },
-        mode: "onTouched",
+        mode: "onChange",
     })
 
     const onSubmit = (data) => {
@@ -71,7 +72,7 @@ export function Auth() {
                             className='ml-5'
                         />
                     </button>
-                    <a className="mt-10" href="#">Ещё нет аккаунта?</a>
+                    <Link className="mt-10" to="/register">Ещё нет аккаунта?</Link>
                 </form>
             </div>
 

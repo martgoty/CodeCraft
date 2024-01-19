@@ -1,35 +1,25 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+import { useDispatch, useSelector} from 'react-redux'
+import { Navigate } from 'react-router-dom'
 import moment from 'moment-timezone'
 import 'moment/locale/ru'
 
 import { Card, Empty } from '../../components/index'
+import { fetchLessons } from '../../redux/slices/lessonsSlice'
+import { selectIsAuth } from '../../redux/slices/authSlice'
 
 export function Lessons() {
-    const [isLoading, setIsLoading] = useState(true)
+    const dispatch = useDispatch()
+    const isAuth = useSelector(selectIsAuth)
+    const { items, status } = useSelector(state => state.lessons)
     const [userTimezone, setUserTimezone] = useState('')
-    const [lessons, setLessons] = useState([])
-    const [nextLesson, setNextLessons] = useState({})
     const [searchValue, setSearchValues] = useState('')
-
+    
+    const isLessonsLoading = status === 'pending'
 
     React.useEffect(() => {
-        axios.get('https://658a813aba789a962237315f.mockapi.io/lessons')
-            .then((response) => {
-                response.data.sort((a, b) => new Date(b.date) - new Date(a.date))
-                setLessons(response.data)
-
-                const filteredLessons = response.data.filter((obj) => obj.status === 'active')
-                filteredLessons.sort((a, b) => new Date(a.date) - new Date(b.date))
-                setNextLessons(filteredLessons[0])
-                setIsLoading(false)
-            })
-            .catch((response) => {
-                alert('Ошибка обращения к серверу')
-            })
-
+        dispatch(fetchLessons('1'))
         setUserTimezone(moment.tz.guess())
-
     }, [])
 
     const getDateTime = (date) => {
@@ -47,7 +37,16 @@ export function Lessons() {
     }
 
     const renderNextLesson = () => {
-        if (!isLoading && !nextLesson) {
+        const sortedLessons = [...items].sort((a, b) => new Date(a.date) - new Date(b.date))
+
+        const filteredLessons = sortedLessons.filter((obj) => {
+            return obj.status === 'completed'
+        })
+
+        const nextLesson = filteredLessons[0]
+
+
+        if (!isLessonsLoading && !nextLesson) {
             return (
                 <Empty
                     imgURL={'img/sleep-smile.svg'}
@@ -59,7 +58,7 @@ export function Lessons() {
         return (
             <Card
                 key={nextLesson?.id}
-                isLoading={isLoading}
+                isLoading={isLessonsLoading}
                 hasButton={true}
                 course={nextLesson?.course}
                 lesson={nextLesson?.lesson}
@@ -73,13 +72,14 @@ export function Lessons() {
 
     const renderLessons = () => {
 
-        const filteredLessons = lessons.filter((obj) => {
+        const sortedLessons = [...items].sort((a, b) => new Date(b.date) - new Date(a.date))
+
+        const filteredLessons = sortedLessons.filter((obj) => {
             const objDate = ((moment.tz(obj.date, userTimezone)).format('YYYY-MM-DD'))
             return searchValue ? objDate === searchValue : obj.status === 'completed'
         }
         )
-
-        if (!isLoading && !filteredLessons.length) {
+         if (!isLessonsLoading && !filteredLessons.length) {
             if (!searchValue) {
                 return (
                     <Empty
@@ -100,11 +100,11 @@ export function Lessons() {
 
         }
 
-        return (isLoading ? [...Array(3)] : filteredLessons)
+        return (isLessonsLoading ? [...Array(3)] : filteredLessons)
             .map((item, index) => (
                 <Card
                     key={item?.id || index}
-                    isLoading={isLoading}
+                    isLoading={isLessonsLoading}
                     course={item?.course}
                     lesson={item?.lesson}
                     teacher={item?.teacher}
@@ -114,6 +114,11 @@ export function Lessons() {
                 />
             ))
     }
+
+    if(!isAuth){
+        return <Navigate to='/auth' />
+    }
+
     return(
         <div className="content">
             <h1 className="mb-35 mt-35">Следующее занятие</h1>

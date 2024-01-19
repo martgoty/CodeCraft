@@ -1,10 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { useSelector, useDispatch } from 'react-redux'
 
 import styles from './Register.module.scss'
 import { MediaButton, InputField } from '../../components'
+import { selectIsAuth, fetchRegister } from '../../redux/slices/authSlice'
 
 export function Register() {
+    const { error } = useSelector(state => state.auth)
+    const isAuth = useSelector(selectIsAuth)
+    const dispatch = useDispatch()
+ 
     const {
         register,
         formState: {
@@ -15,21 +21,33 @@ export function Register() {
     } = useForm({
         defaultValues: {
             name: 'Аркадий',
-            email: 'email@email.ru',
+            email: 'email@email.com',
             password: '12345678',
         },
-        mode: "onTouched",
+        mode: 'onChange',
     })
 
     const onSubmit = (data) => {
-        alert(JSON.stringify(data))
+        dispatch(fetchRegister(data))
+    }
+
+    const handleRequestErrors = () => {
+        if(error){
+            alert(error)
+        }
+    }
+
+    if(isAuth){
+        return <Navigate to='/lessons' />
     }
 
     return (
+        
         <div className={`d-flex flex-row ${styles.form}`}>
-
+            {handleRequestErrors()}
             <div className={`d-flex flex-column align-center justify-center ${styles.left}`}>
                 <h1>Регистрация</h1>
+
                 <form className='d-flex flex-column align-center' onSubmit={handleSubmit(onSubmit)}>
                     <InputField 
                         name='name'

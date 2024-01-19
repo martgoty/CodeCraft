@@ -1,8 +1,18 @@
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 
 import styles from './Header.module.scss'
+import { logout, selectIsAuth, selectUserName } from '../../redux/slices/authSlice'
 
-export function Header({ isAuth = false }) {
+export function Header() {
+    const dispatch = useDispatch()
+    const isAuth = useSelector(selectIsAuth)
+    const userName = useSelector(selectUserName)
+
+    const onClickLogout = () => {
+        dispatch(logout())
+    }
+
     return (
         <div className={`d-flex flex-row justify-between align-center ${styles.header}`}>
             <Link to="/">
@@ -28,7 +38,7 @@ export function Header({ isAuth = false }) {
                         <button className={styles.menuButton}>Занятия</button>
                         <button className={styles.menuButton}>Курсы</button>
                             
-                        <button className={`d-flex flex-row align-center justify-start ${styles.menuButton} ${styles.menuButtonRound} ${styles.dropMenuButton}`}>
+                        <div className={`d-flex flex-row align-center justify-start ${styles.menuButton} ${styles.menuButtonRound} ${styles.dropMenuButton}`}>
                             <img 
                                 className='mr-5'
                                 width={32} 
@@ -36,7 +46,7 @@ export function Header({ isAuth = false }) {
                                 src="img/user.svg" 
                                 alt="Иконка пользователя"
                             />
-                            <span>dmakddmdaddad</span> 
+                            <span>{userName}</span> 
                             <div className={styles.dropMenu}>
                                 <button className='d-flex align-center justify-center'>
                                     <img
@@ -47,7 +57,7 @@ export function Header({ isAuth = false }) {
                                     Профиль
                                 </button>
                                 <Link to='/register'>
-                                    <button className={`d-flex align-center justify-center ${styles.roundButton}`}>
+                                        <button className={`d-flex align-center justify-center ${styles.roundButton}`} onClick={onClickLogout}>
                                         <img
                                             className='mr-5'
                                             src='img/exit.svg'
@@ -57,7 +67,7 @@ export function Header({ isAuth = false }) {
                                     </button>
                                 </Link>
                             </div>
-                        </button>
+                        </div>
                     </>
                     : <>
                             <Link to='/register'>

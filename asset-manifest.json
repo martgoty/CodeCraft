@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/CodeCraft/static/css/main.5de65abd.css",
-    "main.js": "/CodeCraft/static/js/main.7c47bca6.js",
+    "main.js": "/CodeCraft/static/js/main.3a41b953.js",
     "static/media/reg-bg.jpg": "/CodeCraft/static/media/reg-bg.0b9586275f1be63c8ab9.jpg",
     "index.html": "/CodeCraft/index.html",
     "main.5de65abd.css.map": "/CodeCraft/static/css/main.5de65abd.css.map",
-    "main.7c47bca6.js.map": "/CodeCraft/static/js/main.7c47bca6.js.map"
+    "main.3a41b953.js.map": "/CodeCraft/static/js/main.3a41b953.js.map"
   },
   "entrypoints": [
     "static/css/main.5de65abd.css",
-    "static/js/main.7c47bca6.js"
+    "static/js/main.3a41b953.js"
   ]
 }
